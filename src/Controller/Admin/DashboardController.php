@@ -27,5 +27,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Screencasts', 'fas fa-video', Screencast::class);
+        yield MenuItem::linkToUrl('Layouts', 'fas fa-list', $this->generateUrl('nglayouts_admin_layouts_index'));
     }
 }
