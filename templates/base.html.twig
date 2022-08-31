@@ -16,7 +16,18 @@
     </head>
     <body>
         {% block layout %}
+            {% block header %}
+                <nav>
+                    <a href="{{ path('app_homepage') }}">Home</a>
+                    <a href="{{ path('app_contact') }}">Contact Us</a>
+                </nav>
+            {% endblock %}
+
             {% block body %}{% endblock %}
+
+            <footer style="text-align: center">
+                &copy; {{ date('now')|date('Y') }} with ❤️ from Symfonycasts
+            </footer>
         {% endblock %}
     </body>
 </html>
