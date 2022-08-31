@@ -25,9 +25,11 @@
 
             {% block body %}{% endblock %}
 
-            <footer style="text-align: center">
-                &copy; {{ date('now')|date('Y') }} with ❤️ from Symfonycasts
-            </footer>
+            {% block footer %}
+                <footer style="text-align: center">
+                    &copy; {{ date('now')|date('Y') }} with ❤️ from Symfonycasts
+                </footer>
+            {% endblock %}
         {% endblock %}
     </body>
 </html>
