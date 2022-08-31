@@ -1,2 +1,6 @@
 netgen_layouts:
     pagelayout: 'base.html.twig'
+    value_types:
+        doctrine_screencast:
+            name: 'Screencast'
+            manual_items: false
