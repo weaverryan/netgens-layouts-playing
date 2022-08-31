@@ -1,0 +1,14 @@
+{% extends nglayouts.layoutTemplate %}
+
+{% block body %}
+    <h1>Check out our screencasts</h1>
+    <div>
+        Screencasts are a great way to learn!
+    </div>
+
+    <ul>
+        {% for screencast in screencasts %}
+            <li>{{ screencast.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
