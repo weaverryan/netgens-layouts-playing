@@ -15,7 +15,8 @@
         "symfony/framework-bundle": "5.4.*",
         "symfony/monolog-bundle": "^3.0",
         "symfony/runtime": "5.4.*",
-        "symfony/yaml": "5.4.*"
+        "symfony/yaml": "5.4.*",
+        "zenstruck/foundry": "^1.21"
     },
     "config": {
         "allow-plugins": {
