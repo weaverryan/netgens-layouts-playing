@@ -4,6 +4,7 @@ namespace App\Factory;
 
 use App\Entity\Screencast;
 use App\Repository\ScreencastRepository;
+use Symfony\Component\Filesystem\Filesystem;
 use Zenstruck\Foundry\RepositoryProxy;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
@@ -28,30 +29,41 @@ use Zenstruck\Foundry\Proxy;
  */
 final class ScreencastFactory extends ModelFactory
 {
+    private static $images = [
+        '1.jpeg',
+        '2.jpeg'
+    ];
+
     public function __construct()
     {
         parent::__construct();
-
-        // TODO inject services if required (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services)
     }
 
     protected function getDefaults(): array
     {
         return [
-            // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
             'title' => self::faker()->text(),
-            'description' => self::faker()->text(),
-            'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->datetime()),
-            'length' => self::faker()->randomNumber(),
-            'imagePath' => self::faker()->text(),
+            'description' => self::faker()->paragraphs(2, true),
+            'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTimeBetween('-1 year', 'now')),
+            'length' => self::faker()->numberBetween(30, 90),
+            'imagePath' => self::faker()->randomElement(self::$images),
         ];
     }
 
     protected function initialize(): self
     {
-        // see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
         return $this
-            // ->afterInstantiate(function(Screencast $screencast): void {})
+            ->afterInstantiate(function(Screencast $screencast): void {
+                $imagePath = __DIR__.'/Fixtures/'.$screencast->getImagePath();
+                if (!file_exists($imagePath)) {
+                    return;
+                }
+
+                $fs = new Filesystem();
+                $newName = sha1(random_bytes(50)).'.jpg';
+                $fs->copy($imagePath, __DIR__.'/../../public/uploads/screencasts/'.$newName);
+                $screencast->setImagePath($newName);
+            })
         ;
     }
 
