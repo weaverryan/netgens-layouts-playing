@@ -24,7 +24,8 @@ class ScreencastCrudController extends AbstractCrudController
             NumberField::new('length'),
             ImageField::new('imagePath')
                 ->setBasePath('uploads/screencasts')
-                ->setUploadDir('public/uploads'),
+                ->setUploadDir('public/uploads/screencasts')
+                ->setUploadedFileNamePattern('[slug]-[randomhash].[extension]'),
         ];
     }
 }
