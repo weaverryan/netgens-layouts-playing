@@ -18,6 +18,7 @@ class AppFixtures extends Fixture
         $user = new User();
         $user->setEmail('ryan@example.com');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
+        $user->setRoles(['ROLE_NGLAYOUTS_ADMIN']);
         $manager->persist($user);
 
         $manager->flush();
