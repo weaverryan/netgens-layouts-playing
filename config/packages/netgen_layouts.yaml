@@ -4,3 +4,6 @@ netgen_layouts:
         doctrine_screencast:
             name: 'Screencast'
             manual_items: false
+    query_types:
+        screencast_query:
+            name: 'Screencasts'
