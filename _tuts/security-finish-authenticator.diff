@@ -1,0 +1,27 @@
+diff --git a/src/Controller/MainController.php b/src/Controller/MainController.php
+index 87960a0..df0e846 100644
+--- a/src/Controller/MainController.php
++++ b/src/Controller/MainController.php
+@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
+ 
+ class MainController extends AbstractController
+ {
+-    #[Route('/')]
++    #[Route('/', name: 'app_homepage')]
+     public function homepage(): Response
+     {
+         return $this->render('main/homepage.html.twig');
+diff --git a/src/Security/LoginFormAuthenticator.php b/src/Security/LoginFormAuthenticator.php
+index 3896377..99ec36f 100644
+--- a/src/Security/LoginFormAuthenticator.php
++++ b/src/Security/LoginFormAuthenticator.php
+@@ -47,8 +47,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
+         }
+ 
+         // For example:
+-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
+-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
++        return new RedirectResponse($this->urlGenerator->generate('app_homepage'));
+     }
+ 
+     protected function getLoginUrl(Request $request): string

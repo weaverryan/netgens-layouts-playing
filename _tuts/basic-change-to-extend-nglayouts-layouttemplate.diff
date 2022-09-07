@@ -1,0 +1,10 @@
+diff --git a/templates/main/homepage.html.twig b/templates/main/homepage.html.twig
+index f18f27d..9a0f827 100644
+--- a/templates/main/homepage.html.twig
++++ b/templates/main/homepage.html.twig
+@@ -1,4 +1,4 @@
+-{% extends 'base.html.twig' %}
++{% extends nglayouts.layoutTemplate %}
+ 
+ {% block body %}
+     <h1>Hello to the homepage!</h1>
