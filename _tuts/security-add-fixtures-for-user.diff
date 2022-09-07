@@ -1,0 +1,30 @@
+diff --git a/src/DataFixtures/AppFixtures.php b/src/DataFixtures/AppFixtures.php
+index 987f6fe..dd823fd 100644
+--- a/src/DataFixtures/AppFixtures.php
++++ b/src/DataFixtures/AppFixtures.php
+@@ -2,15 +2,23 @@
+ 
+ namespace App\DataFixtures;
+ 
++use App\Entity\User;
+ use Doctrine\Bundle\FixturesBundle\Fixture;
+ use Doctrine\Persistence\ObjectManager;
++use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+ 
+ class AppFixtures extends Fixture
+ {
++    public function __construct(private UserPasswordHasherInterface $passwordHasher)
++    {
++    }
++
+     public function load(ObjectManager $manager): void
+     {
+-        // $product = new Product();
+-        // $manager->persist($product);
++        $user = new User();
++        $user->setEmail('ryan@example.com');
++        $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
++        $manager->persist($user);
+ 
+         $manager->flush();
+     }

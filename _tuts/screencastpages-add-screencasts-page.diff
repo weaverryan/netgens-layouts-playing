@@ -1,0 +1,46 @@
+diff --git a/src/Controller/ScreencastController.php b/src/Controller/ScreencastController.php
+new file mode 100644
+index 0000000..5ff7772
+--- /dev/null
++++ b/src/Controller/ScreencastController.php
+@@ -0,0 +1,20 @@
++<?php
++
++namespace App\Controller;
++
++use App\Repository\ScreencastRepository;
++use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\Routing\Annotation\Route;
++
++class ScreencastController extends AbstractController
++{
++    #[Route('/screencasts', name: 'app_screencast_index')]
++    public function index(ScreencastRepository $screencastRepository)
++    {
++        $screencasts = $screencastRepository->findAll();
++
++        return $this->render('screencast/index.html.twig', [
++            'screencasts' => $screencasts,
++        ]);
++    }
++}
+diff --git a/templates/screencast/index.html.twig b/templates/screencast/index.html.twig
+new file mode 100644
+index 0000000..918eb7d
+--- /dev/null
++++ b/templates/screencast/index.html.twig
+@@ -0,0 +1,14 @@
++{% extends nglayouts.layoutTemplate %}
++
++{% block body %}
++    <h1>Check out our screencasts</h1>
++    <div>
++        Screencasts are a great way to learn!
++    </div>
++
++    <ul>
++        {% for screencast in screencasts %}
++            <li>{{ screencast.title }}</li>
++        {% endfor %}
++    </ul>
++{% endblock %}
