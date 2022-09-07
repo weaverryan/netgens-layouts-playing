@@ -1,0 +1,8 @@
+diff --git a/config/packages/netgen_layouts.yaml b/config/packages/netgen_layouts.yaml
+new file mode 100644
+index 0000000..bc371cd
+--- /dev/null
++++ b/config/packages/netgen_layouts.yaml
+@@ -0,0 +1,2 @@
++netgen_layouts:
++    pagelayout: 'base.html.twig'
