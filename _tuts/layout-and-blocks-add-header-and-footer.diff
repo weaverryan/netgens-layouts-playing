@@ -1,0 +1,25 @@
+diff --git a/templates/base.html.twig b/templates/base.html.twig
+index c0472fe..6fc6f97 100644
+--- a/templates/base.html.twig
++++ b/templates/base.html.twig
+@@ -16,7 +16,20 @@
+     </head>
+     <body>
+         {% block layout %}
++            {% block header %}
++                <nav>
++                    <a href="{{ path('app_homepage') }}">Home</a>
++                    <a href="{{ path('app_contact') }}">Contact Us</a>
++                </nav>
++            {% endblock %}
++
+             {% block body %}{% endblock %}
++
++            {% block footer %}
++                <footer style="text-align: center">
++                    &copy; {{ date('now')|date('Y') }} with ❤️ from Symfonycasts
++                </footer>
++            {% endblock %}
+         {% endblock %}
+     </body>
+ </html>
