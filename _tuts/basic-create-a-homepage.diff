@@ -1,0 +1,33 @@
+diff --git a/src/Controller/MainController.php b/src/Controller/MainController.php
+new file mode 100644
+index 0000000..87960a0
+--- /dev/null
++++ b/src/Controller/MainController.php
+@@ -0,0 +1,16 @@
++<?php
++
++namespace App\Controller;
++
++use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\Routing\Annotation\Route;
++
++class MainController extends AbstractController
++{
++    #[Route('/')]
++    public function homepage(): Response
++    {
++        return $this->render('main/homepage.html.twig');
++    }
++}
+diff --git a/templates/main/homepage.html.twig b/templates/main/homepage.html.twig
+new file mode 100644
+index 0000000..f18f27d
+--- /dev/null
++++ b/templates/main/homepage.html.twig
+@@ -0,0 +1,5 @@
++{% extends 'base.html.twig' %}
++
++{% block body %}
++    <h1>Hello to the homepage!</h1>
++{% endblock %}

@@ -1,0 +1,309 @@
+diff --git a/composer.json b/composer.json
+index c53ca8f..de9e5f3 100644
+--- a/composer.json
++++ b/composer.json
+@@ -12,6 +12,7 @@
+         "symfony/dotenv": "5.4.*",
+         "symfony/flex": "^1.17|^2",
+         "symfony/framework-bundle": "5.4.*",
++        "symfony/monolog-bundle": "^3.0",
+         "symfony/runtime": "5.4.*",
+         "symfony/yaml": "5.4.*"
+     },
+@@ -64,6 +65,9 @@
+         }
+     },
+     "require-dev": {
+-        "symfony/maker-bundle": "^1.45"
++        "symfony/debug-bundle": "5.4.*",
++        "symfony/maker-bundle": "^1.45",
++        "symfony/stopwatch": "5.4.*",
++        "symfony/web-profiler-bundle": "5.4.*"
+     }
+ }
+diff --git a/composer.lock b/composer.lock
+index f4df229..d7e8e65 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "43ad30ee933f2b684a129c17133f7024",
++    "content-hash": "3747d80a48f823331baaad78b0ed8fd1",
+     "packages": [
+         {
+             "name": "beberlei/assert",
+@@ -8781,6 +8781,85 @@
+             },
+             "time": "2022-05-31T20:59:12+00:00"
+         },
++        {
++            "name": "symfony/debug-bundle",
++            "version": "v5.4.11",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/symfony/debug-bundle.git",
++                "reference": "ec73a8bb7b966ccbe9e76be3c7dc413d8ae84f47"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/symfony/debug-bundle/zipball/ec73a8bb7b966ccbe9e76be3c7dc413d8ae84f47",
++                "reference": "ec73a8bb7b966ccbe9e76be3c7dc413d8ae84f47",
++                "shasum": ""
++            },
++            "require": {
++                "ext-xml": "*",
++                "php": ">=7.2.5",
++                "symfony/http-kernel": "^4.4|^5.0|^6.0",
++                "symfony/polyfill-php80": "^1.16",
++                "symfony/twig-bridge": "^4.4|^5.0|^6.0",
++                "symfony/var-dumper": "^4.4|^5.0|^6.0"
++            },
++            "conflict": {
++                "symfony/config": "<4.4",
++                "symfony/dependency-injection": "<5.2"
++            },
++            "require-dev": {
++                "symfony/config": "^4.4|^5.0|^6.0",
++                "symfony/dependency-injection": "^4.4|^5.0|^6.0",
++                "symfony/web-profiler-bundle": "^4.4|^5.0|^6.0"
++            },
++            "suggest": {
++                "symfony/config": "For service container configuration",
++                "symfony/dependency-injection": "For using as a service from the container"
++            },
++            "type": "symfony-bundle",
++            "autoload": {
++                "psr-4": {
++                    "Symfony\\Bundle\\DebugBundle\\": ""
++                },
++                "exclude-from-classmap": [
++                    "/Tests/"
++                ]
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "authors": [
++                {
++                    "name": "Fabien Potencier",
++                    "email": "fabien@symfony.com"
++                },
++                {
++                    "name": "Symfony Community",
++                    "homepage": "https://symfony.com/contributors"
++                }
++            ],
++            "description": "Provides a tight integration of the Symfony VarDumper component and the ServerLogCommand from MonologBridge into the Symfony full-stack framework",
++            "homepage": "https://symfony.com",
++            "support": {
++                "source": "https://github.com/symfony/debug-bundle/tree/v5.4.11"
++            },
++            "funding": [
++                {
++                    "url": "https://symfony.com/sponsor",
++                    "type": "custom"
++                },
++                {
++                    "url": "https://github.com/fabpot",
++                    "type": "github"
++                },
++                {
++                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
++                    "type": "tidelift"
++                }
++            ],
++            "time": "2022-07-20T13:00:38+00:00"
++        },
+         {
+             "name": "symfony/maker-bundle",
+             "version": "v1.45.0",
+@@ -8873,6 +8952,86 @@
+                 }
+             ],
+             "time": "2022-07-26T12:31:45+00:00"
++        },
++        {
++            "name": "symfony/web-profiler-bundle",
++            "version": "v5.4.10",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/symfony/web-profiler-bundle.git",
++                "reference": "f61c99d8dbd864b11935851b598f784bcff36fc7"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/f61c99d8dbd864b11935851b598f784bcff36fc7",
++                "reference": "f61c99d8dbd864b11935851b598f784bcff36fc7",
++                "shasum": ""
++            },
++            "require": {
++                "php": ">=7.2.5",
++                "symfony/config": "^4.4|^5.0|^6.0",
++                "symfony/framework-bundle": "^5.3|^6.0",
++                "symfony/http-kernel": "^5.3|^6.0",
++                "symfony/polyfill-php80": "^1.16",
++                "symfony/routing": "^4.4|^5.0|^6.0",
++                "symfony/twig-bundle": "^4.4|^5.0|^6.0",
++                "twig/twig": "^2.13|^3.0.4"
++            },
++            "conflict": {
++                "symfony/dependency-injection": "<5.2",
++                "symfony/form": "<4.4",
++                "symfony/mailer": "<5.4",
++                "symfony/messenger": "<4.4"
++            },
++            "require-dev": {
++                "symfony/browser-kit": "^4.4|^5.0|^6.0",
++                "symfony/console": "^4.4|^5.0|^6.0",
++                "symfony/css-selector": "^4.4|^5.0|^6.0",
++                "symfony/stopwatch": "^4.4|^5.0|^6.0"
++            },
++            "type": "symfony-bundle",
++            "autoload": {
++                "psr-4": {
++                    "Symfony\\Bundle\\WebProfilerBundle\\": ""
++                },
++                "exclude-from-classmap": [
++                    "/Tests/"
++                ]
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "authors": [
++                {
++                    "name": "Fabien Potencier",
++                    "email": "fabien@symfony.com"
++                },
++                {
++                    "name": "Symfony Community",
++                    "homepage": "https://symfony.com/contributors"
++                }
++            ],
++            "description": "Provides a development tool that gives detailed information about the execution of any request",
++            "homepage": "https://symfony.com",
++            "support": {
++                "source": "https://github.com/symfony/web-profiler-bundle/tree/v5.4.10"
++            },
++            "funding": [
++                {
++                    "url": "https://symfony.com/sponsor",
++                    "type": "custom"
++                },
++                {
++                    "url": "https://github.com/fabpot",
++                    "type": "github"
++                },
++                {
++                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
++                    "type": "tidelift"
++                }
++            ],
++            "time": "2022-06-06T19:10:58+00:00"
+         }
+     ],
+     "aliases": [],
+diff --git a/config/bundles.php b/config/bundles.php
+index 8822869..20fd6d7 100644
+--- a/config/bundles.php
++++ b/config/bundles.php
+@@ -18,4 +18,6 @@ return [
+     Netgen\Bundle\LayoutsDebugBundle\NetgenLayoutsDebugBundle::class => ['dev' => true, 'test' => true],
+     Netgen\Bundle\LayoutsStandardBundle\NetgenLayoutsStandardBundle::class => ['all' => true],
+     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
++    Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
++    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
+ ];
+diff --git a/config/packages/debug.yaml b/config/packages/debug.yaml
+new file mode 100644
+index 0000000..ad874af
+--- /dev/null
++++ b/config/packages/debug.yaml
+@@ -0,0 +1,5 @@
++when@dev:
++    debug:
++        # Forwards VarDumper Data clones to a centralized server allowing to inspect dumps on CLI or in your browser.
++        # See the "server:dump" command to start a new server.
++        dump_destination: "tcp://%env(VAR_DUMPER_SERVER)%"
+diff --git a/config/packages/web_profiler.yaml b/config/packages/web_profiler.yaml
+new file mode 100644
+index 0000000..17893da
+--- /dev/null
++++ b/config/packages/web_profiler.yaml
+@@ -0,0 +1,15 @@
++when@dev:
++    web_profiler:
++        toolbar: true
++        intercept_redirects: false
++
++    framework:
++        profiler: { only_exceptions: false }
++
++when@test:
++    web_profiler:
++        toolbar: false
++        intercept_redirects: false
++
++    framework:
++        profiler: { collect: false }
+diff --git a/config/routes/web_profiler.yaml b/config/routes/web_profiler.yaml
+new file mode 100644
+index 0000000..8d85319
+--- /dev/null
++++ b/config/routes/web_profiler.yaml
+@@ -0,0 +1,8 @@
++when@dev:
++    web_profiler_wdt:
++        resource: '@WebProfilerBundle/Resources/config/routing/wdt.xml'
++        prefix: /_wdt
++
++    web_profiler_profiler:
++        resource: '@WebProfilerBundle/Resources/config/routing/profiler.xml'
++        prefix: /_profiler
+diff --git a/symfony.lock b/symfony.lock
+index 20c777f..d33bf90 100644
+--- a/symfony.lock
++++ b/symfony.lock
+@@ -122,6 +122,18 @@
+             "bin/console"
+         ]
+     },
++    "symfony/debug-bundle": {
++        "version": "5.4",
++        "recipe": {
++            "repo": "github.com/symfony/recipes",
++            "branch": "main",
++            "version": "5.3",
++            "ref": "5aa8aa48234c8eb6dbdd7b3cd5d791485d2cec4b"
++        },
++        "files": [
++            "config/packages/debug.yaml"
++        ]
++    },
+     "symfony/dependency-injection": {
+         "version": "v5.4.11"
+     },
+@@ -300,6 +312,19 @@
+     "symfony/var-exporter": {
+         "version": "v5.4.10"
+     },
++    "symfony/web-profiler-bundle": {
++        "version": "5.4",
++        "recipe": {
++            "repo": "github.com/symfony/recipes",
++            "branch": "main",
++            "version": "5.3",
++            "ref": "24bbc3d84ef2f427f82104f766014e799eefcc3e"
++        },
++        "files": [
++            "config/packages/web_profiler.yaml",
++            "config/routes/web_profiler.yaml"
++        ]
++    },
+     "symfony/yaml": {
+         "version": "v5.4.12"
+     }
