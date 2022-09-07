@@ -39,28 +39,14 @@ class ScreencastRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Screencast[] Returns an array of Screencast objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Screencast
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function search(?string $search, int $offset = 0, ?int $limit = null): array
+    {
+        return $this->createQueryBuilder('screencast')
+            ->andWhere('screencast.title LIKE :search OR screencast.description LIKE :search')
+            ->setParameter('search', '%'.$search.'%')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
 }

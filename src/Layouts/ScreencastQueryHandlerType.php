@@ -2,29 +2,41 @@
 
 namespace App\Layouts;
 
+use App\Repository\ScreencastRepository;
 use Netgen\Layouts\API\Values\Collection\Query;
 use Netgen\Layouts\Collection\QueryType\QueryTypeHandlerInterface;
 use Netgen\Layouts\Parameters\ParameterBuilderInterface;
+use Netgen\Layouts\Parameters\ParameterType\TextType;
 
 class ScreencastQueryHandlerType implements QueryTypeHandlerInterface
 {
+    public function __construct(
+        private ScreencastRepository $screencastRepository
+    )
+    {
+    }
+
     public function buildParameters(ParameterBuilderInterface $builder): void
     {
-        // TODO: Implement buildParameters() method.
+        $builder->add('title', TextType::class);
     }
 
     public function getValues(Query $query, int $offset = 0, ?int $limit = null): iterable
     {
-        // TODO: Implement getValues() method.
+        return $this->screencastRepository->search(
+            $query->getParameter('title')->getValue(),
+            $offset,
+            $limit,
+        );
     }
 
     public function getCount(Query $query): int
     {
-        // TODO: Implement getCount() method.
+        return iterator_count($this->getValues($query));
     }
 
     public function isContextual(Query $query): bool
     {
-        // TODO: Implement isContextual() method.
+        return false;
     }
 }
