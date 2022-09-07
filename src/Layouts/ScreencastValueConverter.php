@@ -2,42 +2,45 @@
 
 namespace App\Layouts;
 
+use App\Entity\Screencast;
 use Netgen\Layouts\Item\ValueConverterInterface;
 
 class ScreencastValueConverter implements ValueConverterInterface
 {
     public function supports(object $object): bool
     {
-        // TODO: Implement supports() method.
+        return $object instanceof Screencast;
     }
 
     public function getValueType(object $object): string
     {
-        // TODO: Implement getValueType() method.
+        return 'doctrine_screencast';
     }
 
     public function getId(object $object)
     {
-        // TODO: Implement getId() method.
+        return $object->getId();
     }
 
     public function getRemoteId(object $object)
     {
-        // TODO: Implement getRemoteId() method.
+        return $this->getId($object);
     }
 
     public function getName(object $object): string
     {
-        // TODO: Implement getName() method.
+        assert($object instanceof Screencast);
+
+        return $object->getTitle();
     }
 
     public function getIsVisible(object $object): bool
     {
-        // TODO: Implement getIsVisible() method.
+        return true;
     }
 
     public function getObject(object $object): object
     {
-        // TODO: Implement getObject() method.
+        return $object;
     }
 }
