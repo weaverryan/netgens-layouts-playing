@@ -1,0 +1,11 @@
+diff --git a/src/Controller/Admin/DashboardController.php b/src/Controller/Admin/DashboardController.php
+index 6e7aefa..9432f37 100644
+--- a/src/Controller/Admin/DashboardController.php
++++ b/src/Controller/Admin/DashboardController.php
+@@ -27,5 +27,6 @@ class DashboardController extends AbstractDashboardController
+     {
+         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+         yield MenuItem::linkToCrud('Screencasts', 'fas fa-video', Screencast::class);
++        yield MenuItem::linkToUrl('Layouts', 'fas fa-list', $this->generateUrl('nglayouts_admin_layouts_index'));
+     }
+ }
