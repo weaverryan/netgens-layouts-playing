@@ -7,3 +7,13 @@ netgen_layouts:
     query_types:
         screencast_query:
             name: 'Screencasts'
+
+    view:
+        item_view:
+            # "app" defines templates used in the admin
+            app:
+                this_key_is_meaningless:
+                    template: "layouts/admin/screencast.html.twig"
+                    match:
+                        # must match the "value_types" value
+                        item\value_type: doctrine_screencast
