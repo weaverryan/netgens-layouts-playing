@@ -1,0 +1,31 @@
+diff --git a/src/Controller/Admin/ScreencastCrudController.php b/src/Controller/Admin/ScreencastCrudController.php
+new file mode 100644
+index 0000000..0c813df
+--- /dev/null
++++ b/src/Controller/Admin/ScreencastCrudController.php
+@@ -0,0 +1,25 @@
++<?php
++
++namespace App\Controller\Admin;
++
++use App\Entity\Screencast;
++use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
++
++class ScreencastCrudController extends AbstractCrudController
++{
++    public static function getEntityFqcn(): string
++    {
++        return Screencast::class;
++    }
++
++    /*
++    public function configureFields(string $pageName): iterable
++    {
++        return [
++            IdField::new('id'),
++            TextField::new('title'),
++            TextEditorField::new('description'),
++        ];
++    }
++    */
++}
