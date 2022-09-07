@@ -1,0 +1,220 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "install-install-netgen-layouts-standard",
+            "name": "Install: install netgen\/layouts-standard",
+            "description": null
+        },
+        {
+            "id": "install-comment-out-doctrine-orm-config",
+            "name": "Install: comment-out doctrine.orm config",
+            "description": null
+        },
+        {
+            "id": "install-remove-docker-files",
+            "name": "Install: remove docker files",
+            "description": null
+        },
+        {
+            "id": "install-install-maker",
+            "name": "Install: install maker",
+            "description": null
+        },
+        {
+            "id": "install-make-docker-database",
+            "name": "Install: make:docker:database",
+            "description": null
+        },
+        {
+            "id": "install-install-debug-tools",
+            "name": "Install: install debug tools",
+            "description": null
+        },
+        {
+            "id": "install-install-encore",
+            "name": "Install: Install Encore",
+            "description": null
+        },
+        {
+            "id": "install-yarn-install",
+            "name": "Install: yarn install",
+            "description": null
+        },
+        {
+            "id": "install-add-bootstrap",
+            "name": "Install: add bootstrap",
+            "description": null
+        },
+        {
+            "id": "basic-create-a-homepage",
+            "name": "Basic: Create a homepage",
+            "description": null
+        },
+        {
+            "id": "basic-change-to-extend-nglayouts-layouttemplate",
+            "name": "Basic: change to extend nglayouts.layoutTemplate",
+            "description": null
+        },
+        {
+            "id": "basic-configure-pagelayout",
+            "name": "Basic: configure pagelayout",
+            "description": null
+        },
+        {
+            "id": "security-install-doctrine-orm",
+            "name": "Security: install doctrine\/orm",
+            "description": null
+        },
+        {
+            "id": "security-re-add-orm-config",
+            "name": "Security: re-add orm config",
+            "description": null
+        },
+        {
+            "id": "security-make-user",
+            "name": "Security: make:user",
+            "description": null
+        },
+        {
+            "id": "security-make-migration-for-user",
+            "name": "Security: make:migration for User",
+            "description": null
+        },
+        {
+            "id": "security-make-auth-login-form",
+            "name": "Security: make:auth login form",
+            "description": null
+        },
+        {
+            "id": "security-finish-authenticator",
+            "name": "Security: finish authenticator",
+            "description": null
+        },
+        {
+            "id": "security-force-php-8",
+            "name": "Security: force php 8",
+            "description": null
+        },
+        {
+            "id": "security-install-orm-fixtures",
+            "name": "Security: install orm-fixtures",
+            "description": null
+        },
+        {
+            "id": "security-add-fixtures-for-user",
+            "name": "Security: Add fixtures for User",
+            "description": null
+        },
+        {
+            "id": "security-giving-role-for-admin",
+            "name": "Security: Giving role for admin",
+            "description": null
+        },
+        {
+            "id": "layout-and-blocks-rendering-the-layout-block-in-base-html-twig",
+            "name": "Layout&Blocks: rendering the layout block in base.html.twig",
+            "description": null
+        },
+        {
+            "id": "layout-and-blocks-include-assets",
+            "name": "Layout&Blocks: include assets",
+            "description": null
+        },
+        {
+            "id": "layout-and-blocks-create-contact-page",
+            "name": "Layout&Blocks: create contact page",
+            "description": null
+        },
+        {
+            "id": "layout-and-blocks-add-header-and-footer",
+            "name": "Layout&Blocks: add header & footer",
+            "description": null
+        },
+        {
+            "id": "screencast-create-screencast-entity",
+            "name": "Screencast: create Screencast entity",
+            "description": null
+        },
+        {
+            "id": "screencast-make-migration",
+            "name": "Screencast: make:migration",
+            "description": null
+        },
+        {
+            "id": "admin-install-foundry",
+            "name": "Admin: install Foundry",
+            "description": null
+        },
+        {
+            "id": "admin-make-factory-all",
+            "name": "Admin: make:factory all",
+            "description": null
+        },
+        {
+            "id": "admin-install-easy-admin",
+            "name": "Admin: Install easy admin",
+            "description": null
+        },
+        {
+            "id": "admin-make-admin-dashboard",
+            "name": "Admin: make:admin:dashboard",
+            "description": null
+        },
+        {
+            "id": "admin-make-admin-crud",
+            "name": "Admin: make:admin:crud",
+            "description": null
+        },
+        {
+            "id": "admin-link-to-new-crud",
+            "name": "Admin: link to new crud",
+            "description": null
+        },
+        {
+            "id": "admin-customizing-screencast-crud-controller",
+            "name": "Admin: customizing Screencast CRUD controller",
+            "description": null
+        },
+        {
+            "id": "admin-install-mime-component",
+            "name": "Admin: install mime component",
+            "description": null
+        },
+        {
+            "id": "admin-link-to-ng-layouts",
+            "name": "Admin: Link to NG Layouts",
+            "description": null
+        },
+        {
+            "id": "screencastpages-add-screencasts-page",
+            "name": "ScreencastPages: Add \/screencasts page",
+            "description": null
+        },
+        {
+            "id": "screencastpages-link-to-screencasts",
+            "name": "ScreencastPages: link to screencasts",
+            "description": null
+        },
+        {
+            "id": "screencastpages-remove-title-description-now-in-layout",
+            "name": "ScreencastPages: Remove title\/description (now in layout)",
+            "description": null
+        },
+        {
+            "id": "screencastvaluetype-add-to-value-types",
+            "name": "ScreencastValueType: Add to value_types",
+            "description": null
+        },
+        {
+            "id": "screencastvaluetype-add-to-query-types",
+            "name": "ScreencastValueType: add to query_types",
+            "description": null
+        }
+    ],
+    "sha": "4880c9c75956aa95a1c48d0f951b12ce6798daed"
+}
