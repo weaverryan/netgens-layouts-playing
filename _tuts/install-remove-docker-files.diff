@@ -1,0 +1,41 @@
+diff --git a/docker-compose.override.yml b/docker-compose.override.yml
+deleted file mode 100644
+index f2247d5..0000000
+--- a/docker-compose.override.yml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-version: '3'
+-
+-services:
+-###> doctrine/doctrine-bundle ###
+-  database:
+-    ports:
+-      - "5432"
+-###< doctrine/doctrine-bundle ###
+diff --git a/docker-compose.yml b/docker-compose.yml
+deleted file mode 100644
+index 8aa1121..0000000
+--- a/docker-compose.yml
++++ /dev/null
+@@ -1,21 +0,0 @@
+-version: '3'
+-
+-services:
+-###> doctrine/doctrine-bundle ###
+-  database:
+-    image: postgres:${POSTGRES_VERSION:-14}-alpine
+-    environment:
+-      POSTGRES_DB: ${POSTGRES_DB:-app}
+-      # You should definitely change the password in production
+-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+-      POSTGRES_USER: ${POSTGRES_USER:-app}
+-    volumes:
+-      - db-data:/var/lib/postgresql/data:rw
+-      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+-      # - ./docker/db/data:/var/lib/postgresql/data:rw
+-###< doctrine/doctrine-bundle ###
+-
+-volumes:
+-###> doctrine/doctrine-bundle ###
+-  db-data:
+-###< doctrine/doctrine-bundle ###
