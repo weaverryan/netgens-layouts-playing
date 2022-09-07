@@ -17,3 +17,9 @@ netgen_layouts:
                     match:
                         # must match the "value_types" value
                         item\value_type: doctrine_screencast
+            # "default" defines templates used in the frontend
+            default:
+                this_key_is_meaningless:
+                    template: "layouts/frontend/screencast.html.twig"
+                    match:
+                        item\value_type: doctrine_screencast
