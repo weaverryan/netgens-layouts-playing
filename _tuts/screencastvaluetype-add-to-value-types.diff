@@ -1,0 +1,11 @@
+diff --git a/config/packages/netgen_layouts.yaml b/config/packages/netgen_layouts.yaml
+index bc371cd..11e3993 100644
+--- a/config/packages/netgen_layouts.yaml
++++ b/config/packages/netgen_layouts.yaml
+@@ -1,2 +1,6 @@
+ netgen_layouts:
+     pagelayout: 'base.html.twig'
++    value_types:
++        doctrine_screencast:
++            name: 'Screencast'
++            manual_items: false
