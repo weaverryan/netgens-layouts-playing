@@ -1,0 +1,35 @@
+diff --git a/composer.json b/composer.json
+index 28490d2..dfdc14d 100644
+--- a/composer.json
++++ b/composer.json
+@@ -4,7 +4,7 @@
+     "minimum-stability": "stable",
+     "prefer-stable": true,
+     "require": {
+-        "php": ">=7.2.5",
++        "php": ">=8.0",
+         "ext-ctype": "*",
+         "ext-iconv": "*",
+         "doctrine/orm": "^2.13",
+diff --git a/composer.lock b/composer.lock
+index e73b39c..f5da4a8 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "7d773f3819d78e6a53c9e028e74661b6",
++    "content-hash": "6730e5c704f097e064dec912eba90efd",
+     "packages": [
+         {
+             "name": "beberlei/assert",
+@@ -9374,7 +9374,7 @@
+     "prefer-stable": true,
+     "prefer-lowest": false,
+     "platform": {
+-        "php": ">=7.2.5",
++        "php": ">=8.0",
+         "ext-ctype": "*",
+         "ext-iconv": "*"
+     },

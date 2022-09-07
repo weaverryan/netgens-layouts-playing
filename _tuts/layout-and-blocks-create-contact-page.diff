@@ -1,0 +1,26 @@
+diff --git a/src/Controller/MainController.php b/src/Controller/MainController.php
+index df0e846..53e492a 100644
+--- a/src/Controller/MainController.php
++++ b/src/Controller/MainController.php
+@@ -13,4 +13,10 @@ class MainController extends AbstractController
+     {
+         return $this->render('main/homepage.html.twig');
+     }
++
++    #[Route('/contact', name: 'app_contact')]
++    public function contact(): Response
++    {
++        return $this->render('main/contact.html.twig');
++    }
+ }
+diff --git a/templates/main/contact.html.twig b/templates/main/contact.html.twig
+new file mode 100644
+index 0000000..d0f0d7b
+--- /dev/null
++++ b/templates/main/contact.html.twig
+@@ -0,0 +1,5 @@
++{% extends nglayouts.layoutTemplate %}
++
++{% block body %}
++    <h1>Contact us:</h1>
++{% endblock %}
