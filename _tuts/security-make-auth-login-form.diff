@@ -1,0 +1,166 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index 6e390fc..b708dc2 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -17,6 +17,11 @@ security:
+         main:
+             lazy: true
+             provider: app_user_provider
++            custom_authenticator: App\Security\LoginFormAuthenticator
++            logout:
++                path: app_logout
++                # where to redirect after logout
++                # target: app_any_route
+ 
+             # activate different ways to authenticate
+             # https://symfony.com/doc/current/security.html#the-firewall
+diff --git a/src/Controller/SecurityController.php b/src/Controller/SecurityController.php
+new file mode 100644
+index 0000000..15b59ce
+--- /dev/null
++++ b/src/Controller/SecurityController.php
+@@ -0,0 +1,32 @@
++<?php
++
++namespace App\Controller;
++
++use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\Routing\Annotation\Route;
++use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
++
++class SecurityController extends AbstractController
++{
++    #[Route(path: '/login', name: 'app_login')]
++    public function login(AuthenticationUtils $authenticationUtils): Response
++    {
++        // if ($this->getUser()) {
++        //     return $this->redirectToRoute('target_path');
++        // }
++
++        // get the login error if there is one
++        $error = $authenticationUtils->getLastAuthenticationError();
++        // last username entered by the user
++        $lastUsername = $authenticationUtils->getLastUsername();
++
++        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
++    }
++
++    #[Route(path: '/logout', name: 'app_logout')]
++    public function logout(): void
++    {
++        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
++    }
++}
+diff --git a/src/Security/LoginFormAuthenticator.php b/src/Security/LoginFormAuthenticator.php
+new file mode 100644
+index 0000000..3896377
+--- /dev/null
++++ b/src/Security/LoginFormAuthenticator.php
+@@ -0,0 +1,58 @@
++<?php
++
++namespace App\Security;
++
++use Symfony\Component\HttpFoundation\RedirectResponse;
++use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
++use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
++use Symfony\Component\Security\Core\Security;
++use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator;
++use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
++use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
++use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
++use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
++use Symfony\Component\Security\Http\Util\TargetPathTrait;
++
++class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
++{
++    use TargetPathTrait;
++
++    public const LOGIN_ROUTE = 'app_login';
++
++    public function __construct(private UrlGeneratorInterface $urlGenerator)
++    {
++    }
++
++    public function authenticate(Request $request): Passport
++    {
++        $email = $request->request->get('email', '');
++
++        $request->getSession()->set(Security::LAST_USERNAME, $email);
++
++        return new Passport(
++            new UserBadge($email),
++            new PasswordCredentials($request->request->get('password', '')),
++            [
++                new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
++            ]
++        );
++    }
++
++    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
++    {
++        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
++            return new RedirectResponse($targetPath);
++        }
++
++        // For example:
++        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
++        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
++    }
++
++    protected function getLoginUrl(Request $request): string
++    {
++        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
++    }
++}
+diff --git a/templates/security/login.html.twig b/templates/security/login.html.twig
+new file mode 100644
+index 0000000..efc5c40
+--- /dev/null
++++ b/templates/security/login.html.twig
+@@ -0,0 +1,42 @@
++{% extends 'base.html.twig' %}
++
++{% block title %}Log in!{% endblock %}
++
++{% block body %}
++<form method="post">
++    {% if error %}
++        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
++    {% endif %}
++
++    {% if app.user %}
++        <div class="mb-3">
++            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
++        </div>
++    {% endif %}
++
++    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
++    <label for="inputEmail">Email</label>
++    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
++    <label for="inputPassword">Password</label>
++    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
++
++    <input type="hidden" name="_csrf_token"
++           value="{{ csrf_token('authenticate') }}"
++    >
++
++    {#
++        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
++        See https://symfony.com/doc/current/security/remember_me.html
++
++        <div class="checkbox mb-3">
++            <label>
++                <input type="checkbox" name="_remember_me"> Remember me
++            </label>
++        </div>
++    #}
++
++    <button class="btn btn-lg btn-primary" type="submit">
++        Sign in
++    </button>
++</form>
++{% endblock %}
