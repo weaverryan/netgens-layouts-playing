@@ -32,7 +32,7 @@ class ScreencastQueryHandlerType implements QueryTypeHandlerInterface
 
     public function getCount(Query $query): int
     {
-        return iterator_count($this->getValues($query));
+        return count($this->getValues($query));
     }
 
     public function isContextual(Query $query): bool
