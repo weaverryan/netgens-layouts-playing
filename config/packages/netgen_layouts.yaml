@@ -3,7 +3,7 @@ netgen_layouts:
     value_types:
         doctrine_screencast:
             name: 'Screencast'
-            manual_items: false
+            manual_items: true
     query_types:
         screencast_query:
             name: 'Screencasts'
