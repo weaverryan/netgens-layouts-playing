@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Screencast;
 use App\Repository\ScreencastRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,14 @@ class ScreencastController extends AbstractController
 
         return $this->render('screencast/index.html.twig', [
             'screencasts' => $screencasts,
+        ]);
+    }
+
+    #[Route('/screencasts/{id}', name: 'app_screencast_show')]
+    public function show(Screencast $screencast)
+    {
+        return $this->render('screencast/show.html.twig', [
+            'screencast' => $screencast,
         ]);
     }
 }
