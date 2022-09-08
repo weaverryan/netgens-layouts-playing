@@ -2,12 +2,11 @@
 
 namespace App\Layouts;
 
-use Netgen\Layouts\Item\CmsItemInterface;
-use Netgen\Layouts\Item\UrlGeneratorInterface;
+use Netgen\Layouts\Item\ValueUrlGeneratorInterface;
 
-class ScreencastUrlGenerator implements UrlGeneratorInterface
+class ScreencastUrlGenerator implements ValueUrlGeneratorInterface
 {
-    public function generate(CmsItemInterface $item): string
+    public function generate(object $object): ?string
     {
         // TODO: Implement generate() method.
     }
