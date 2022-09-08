@@ -3,7 +3,7 @@
 {% block body %}
     <ul>
         {% for screencast in screencasts %}
-            <li>{{ screencast.title }}</li>
+            <li>({{ screencast.id }}) {{ screencast.title }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
