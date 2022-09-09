@@ -1,0 +1,34 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserItem.php b/src/Layouts/Browser/ScreencastBrowserItem.php
+new file mode 100644
+index 0000000..39fc8bb
+--- /dev/null
++++ b/src/Layouts/Browser/ScreencastBrowserItem.php
+@@ -0,0 +1,28 @@
++<?php
++
++namespace App\Layouts\Browser;
++
++use Netgen\ContentBrowser\Item\ItemInterface;
++
++class ScreencastBrowserItem implements ItemInterface
++{
++    public function getValue()
++    {
++        // TODO: Implement getValue() method.
++    }
++
++    public function getName(): string
++    {
++        // TODO: Implement getName() method.
++    }
++
++    public function isVisible(): bool
++    {
++        // TODO: Implement isVisible() method.
++    }
++
++    public function isSelectable(): bool
++    {
++        // TODO: Implement isSelectable() method.
++    }
++}
