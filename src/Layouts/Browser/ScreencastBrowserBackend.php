@@ -2,6 +2,7 @@
 
 namespace App\Layouts\Browser;
 
+use App\Entity\Screencast;
 use App\Repository\ScreencastRepository;
 use Netgen\ContentBrowser\Backend\BackendInterface;
 use Netgen\ContentBrowser\Item\ItemInterface;
@@ -52,7 +53,9 @@ class ScreencastBrowserBackend implements BackendInterface
             ->getQuery()
             ->getResult();
 
-
+        return array_map(function(Screencast $screencast) {
+            return new ScreencastBrowserItem($screencast);
+        }, $screencasts);
     }
 
     public function getSubItemsCount(LocationInterface $location): int

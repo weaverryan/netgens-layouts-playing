@@ -2,27 +2,32 @@
 
 namespace App\Layouts\Browser;
 
+use App\Entity\Screencast;
 use Netgen\ContentBrowser\Item\ItemInterface;
 
 class ScreencastBrowserItem implements ItemInterface
 {
+    public function __construct(private Screencast $screencast)
+    {
+    }
+
     public function getValue()
     {
-        // TODO: Implement getValue() method.
+        return $this->screencast->getId();
     }
 
     public function getName(): string
     {
-        // TODO: Implement getName() method.
+        return $this->screencast->getTitle();
     }
 
     public function isVisible(): bool
     {
-        // TODO: Implement isVisible() method.
+        return true;
     }
 
     public function isSelectable(): bool
     {
-        // TODO: Implement isSelectable() method.
+        return true;
     }
 }
