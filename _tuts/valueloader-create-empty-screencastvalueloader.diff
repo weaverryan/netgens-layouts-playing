@@ -1,0 +1,24 @@
+diff --git a/src/Layouts/ScreencastValueLoader.php b/src/Layouts/ScreencastValueLoader.php
+new file mode 100644
+index 0000000..327cb95
+--- /dev/null
++++ b/src/Layouts/ScreencastValueLoader.php
+@@ -0,0 +1,18 @@
++<?php
++
++namespace App\Layouts;
++
++use Netgen\Layouts\Item\ValueLoaderInterface;
++
++class ScreencastValueLoader implements ValueLoaderInterface
++{
++    public function load($id): ?object
++    {
++        // TODO: Implement load() method.
++    }
++
++    public function loadByRemoteId($remoteId): ?object
++    {
++        // TODO: Implement loadByRemoteId() method.
++    }
++}
