@@ -1,0 +1,23 @@
+diff --git a/config/packages/netgen_layouts.yaml b/config/packages/netgen_layouts.yaml
+index 93ea383..94e7084 100644
+--- a/config/packages/netgen_layouts.yaml
++++ b/config/packages/netgen_layouts.yaml
+@@ -17,3 +17,9 @@ netgen_layouts:
+                     match:
+                         # must match the "value_types" value
+                         item\value_type: doctrine_screencast
++            # "default" defines templates used in the frontend
++            default:
++                this_key_is_meaningless:
++                    template: "layouts/frontend/screencast.html.twig"
++                    match:
++                        item\value_type: doctrine_screencast
+diff --git a/templates/layouts/frontend/screencast.html.twig b/templates/layouts/frontend/screencast.html.twig
+new file mode 100644
+index 0000000..1ab442d
+--- /dev/null
++++ b/templates/layouts/frontend/screencast.html.twig
+@@ -0,0 +1,3 @@
++<a href="#">
++    FRONTEND {{ item.object.title }} - {{ item.object.createdAt|date('Y-m-d') }}
++</a>
