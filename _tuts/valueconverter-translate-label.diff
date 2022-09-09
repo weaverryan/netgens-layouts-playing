@@ -1,0 +1,7 @@
+diff --git a/translations/nglayouts.en.yaml b/translations/nglayouts.en.yaml
+new file mode 100644
+index 0000000..9983632
+--- /dev/null
++++ b/translations/nglayouts.en.yaml
+@@ -0,0 +1 @@
++query.screencast_query.title: 'Screencast title'

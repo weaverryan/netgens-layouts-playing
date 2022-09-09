@@ -1,0 +1,14 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserBackend.php b/src/Layouts/Browser/ScreencastBrowserBackend.php
+index df07c42..fbfe934 100644
+--- a/src/Layouts/Browser/ScreencastBrowserBackend.php
++++ b/src/Layouts/Browser/ScreencastBrowserBackend.php
+@@ -5,7 +5,9 @@ namespace App\Layouts\Browser;
+ use Netgen\ContentBrowser\Backend\BackendInterface;
+ use Netgen\ContentBrowser\Item\ItemInterface;
+ use Netgen\ContentBrowser\Item\LocationInterface;
++use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+ 
++#[AutoconfigureTag('netgen_content_browser.backend', [ 'item_type' => 'doctrine_screencast' ])]
+ class ScreencastBrowserBackend implements BackendInterface
+ {
+     public function getSections(): iterable
