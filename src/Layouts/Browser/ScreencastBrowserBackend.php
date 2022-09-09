@@ -68,11 +68,22 @@ class ScreencastBrowserBackend implements BackendInterface
 
     public function search(string $searchText, int $offset = 0, int $limit = 25): iterable
     {
-        return [];
+        $screencasts = $this->screencastRepository->createSearchQueryBuilder($searchText)
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+
+        return array_map(function(Screencast $screencast) {
+            return new ScreencastBrowserItem($screencast);
+        }, $screencasts);
     }
 
     public function searchCount(string $searchText): int
     {
-        return 0;
+        return $this->screencastRepository->createSearchQueryBuilder($searchText)
+            ->select('count(screencast.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }
