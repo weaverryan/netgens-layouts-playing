@@ -1,0 +1,19 @@
+diff --git a/src/Layouts/ScreencastValueUrlGenerator.php b/src/Layouts/ScreencastValueUrlGenerator.php
+new file mode 100644
+index 0000000..12d21af
+--- /dev/null
++++ b/src/Layouts/ScreencastValueUrlGenerator.php
+@@ -0,0 +1,13 @@
++<?php
++
++namespace App\Layouts;
++
++use Netgen\Layouts\Item\ValueUrlGeneratorInterface;
++
++class ScreencastUrlGenerator implements ValueUrlGeneratorInterface
++{
++    public function generate(object $object): ?string
++    {
++        // TODO: Implement generate() method.
++    }
++}

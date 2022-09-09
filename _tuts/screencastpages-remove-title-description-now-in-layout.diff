@@ -1,5 +1,5 @@
 diff --git a/templates/screencast/index.html.twig b/templates/screencast/index.html.twig
-index 918eb7d..1fe398d 100644
+index 23edf43..ecb89ca 100644
 --- a/templates/screencast/index.html.twig
 +++ b/templates/screencast/index.html.twig
 @@ -1,11 +1,6 @@
@@ -13,4 +13,4 @@ index 918eb7d..1fe398d 100644
 -
      <ul>
          {% for screencast in screencasts %}
-             <li>{{ screencast.title }}</li>
+             <li>({{ screencast.id }}) {{ screencast.title }}</li>
