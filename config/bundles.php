@@ -25,4 +25,7 @@ return [
     Zenstruck\Foundry\ZenstruckFoundryBundle::class => ['dev' => true, 'test' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true],
+    Contentful\ContentfulBundle\ContentfulBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsContentfulBundle\NetgenLayoutsContentfulBundle::class => ['all' => true],
 ];
