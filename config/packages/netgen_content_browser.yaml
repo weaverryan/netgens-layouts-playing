@@ -1,0 +1,8 @@
+netgen_content_browser:
+    item_types:
+        # must match key under "value_types" in netgen_layouts.yaml
+        doctrine_screencast:
+            name: 'Screencasts 🎥'
+            preview:
+                template: 'layouts/admin/content_browser/screencast_preview.html.twig'
+
