@@ -1,0 +1,38 @@
+diff --git a/src/Controller/ScreencastController.php b/src/Controller/ScreencastController.php
+index 5ff7772..a7029d3 100644
+--- a/src/Controller/ScreencastController.php
++++ b/src/Controller/ScreencastController.php
+@@ -2,6 +2,7 @@
+ 
+ namespace App\Controller;
+ 
++use App\Entity\Screencast;
+ use App\Repository\ScreencastRepository;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+ use Symfony\Component\Routing\Annotation\Route;
+@@ -17,4 +18,12 @@ class ScreencastController extends AbstractController
+             'screencasts' => $screencasts,
+         ]);
+     }
++
++    #[Route('/screencasts/{id}', name: 'app_screencast_show')]
++    public function show(Screencast $screencast)
++    {
++        return $this->render('screencast/show.html.twig', [
++            'screencast' => $screencast,
++        ]);
++    }
+ }
+diff --git a/templates/screencast/show.html.twig b/templates/screencast/show.html.twig
+new file mode 100644
+index 0000000..93692fd
+--- /dev/null
++++ b/templates/screencast/show.html.twig
+@@ -0,0 +1,7 @@
++{% extends nglayouts.layoutTemplate %}
++
++{% block title %}{{ screencast.title }} Screencast{% endblock %}
++
++{% block body %}
++    <h1>{{ screencast.title }}</h1>
++{% endblock %}
