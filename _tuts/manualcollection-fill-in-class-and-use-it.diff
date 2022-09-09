@@ -1,0 +1,64 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserBackend.php b/src/Layouts/Browser/ScreencastBrowserBackend.php
+index 6a071cc..a4da944 100644
+--- a/src/Layouts/Browser/ScreencastBrowserBackend.php
++++ b/src/Layouts/Browser/ScreencastBrowserBackend.php
+@@ -2,6 +2,7 @@
+ 
+ namespace App\Layouts\Browser;
+ 
++use App\Entity\Screencast;
+ use App\Repository\ScreencastRepository;
+ use Netgen\ContentBrowser\Backend\BackendInterface;
+ use Netgen\ContentBrowser\Item\ItemInterface;
+@@ -52,7 +53,9 @@ class ScreencastBrowserBackend implements BackendInterface
+             ->getQuery()
+             ->getResult();
+ 
+-
++        return array_map(function(Screencast $screencast) {
++            return new ScreencastBrowserItem($screencast);
++        }, $screencasts);
+     }
+ 
+     public function getSubItemsCount(LocationInterface $location): int
+diff --git a/src/Layouts/Browser/ScreencastBrowserItem.php b/src/Layouts/Browser/ScreencastBrowserItem.php
+index 39fc8bb..f2eb48d 100644
+--- a/src/Layouts/Browser/ScreencastBrowserItem.php
++++ b/src/Layouts/Browser/ScreencastBrowserItem.php
+@@ -2,27 +2,32 @@
+ 
+ namespace App\Layouts\Browser;
+ 
++use App\Entity\Screencast;
+ use Netgen\ContentBrowser\Item\ItemInterface;
+ 
+ class ScreencastBrowserItem implements ItemInterface
+ {
++    public function __construct(private Screencast $screencast)
++    {
++    }
++
+     public function getValue()
+     {
+-        // TODO: Implement getValue() method.
++        return $this->screencast->getId();
+     }
+ 
+     public function getName(): string
+     {
+-        // TODO: Implement getName() method.
++        return $this->screencast->getTitle();
+     }
+ 
+     public function isVisible(): bool
+     {
+-        // TODO: Implement isVisible() method.
++        return true;
+     }
+ 
+     public function isSelectable(): bool
+     {
+-        // TODO: Implement isSelectable() method.
++        return true;
+     }
+ }
