@@ -1,0 +1,13 @@
+diff --git a/config/packages/netgen_layouts.yaml b/config/packages/netgen_layouts.yaml
+index 94e7084..b336160 100644
+--- a/config/packages/netgen_layouts.yaml
++++ b/config/packages/netgen_layouts.yaml
+@@ -3,7 +3,7 @@ netgen_layouts:
+     value_types:
+         doctrine_screencast:
+             name: 'Screencast'
+-            manual_items: false
++            manual_items: true
+     query_types:
+         screencast_query:
+             name: 'Screencasts'
