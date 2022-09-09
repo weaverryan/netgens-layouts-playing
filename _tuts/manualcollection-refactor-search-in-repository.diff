@@ -1,0 +1,33 @@
+diff --git a/src/Repository/ScreencastRepository.php b/src/Repository/ScreencastRepository.php
+index 1bc2588..07569a8 100644
+--- a/src/Repository/ScreencastRepository.php
++++ b/src/Repository/ScreencastRepository.php
+@@ -4,6 +4,7 @@ namespace App\Repository;
+ 
+ use App\Entity\Screencast;
+ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
++use Doctrine\ORM\QueryBuilder;
+ use Doctrine\Persistence\ManagerRegistry;
+ 
+ /**
+@@ -41,12 +42,17 @@ class ScreencastRepository extends ServiceEntityRepository
+ 
+     public function search(?string $search, int $offset = 0, ?int $limit = null): array
+     {
+-        return $this->createQueryBuilder('screencast')
+-            ->andWhere('screencast.title LIKE :search OR screencast.description LIKE :search')
+-            ->setParameter('search', '%'.$search.'%')
++        return $this->createSearchQueryBuilder($search)
+             ->setFirstResult($offset)
+             ->setMaxResults($limit)
+             ->getQuery()
+             ->getResult();
+     }
++
++    public function createSearchQueryBuilder(?string $search): QueryBuilder
++    {
++        return $this->createQueryBuilder('screencast')
++            ->andWhere('screencast.title LIKE :search OR screencast.description LIKE :search')
++            ->setParameter('search', '%'.$search.'%');
++    }
+ }
