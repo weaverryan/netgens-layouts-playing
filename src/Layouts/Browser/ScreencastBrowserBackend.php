@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Layouts;
+namespace App\Layouts\Browser;
 
 use Netgen\ContentBrowser\Backend\BackendInterface;
 use Netgen\ContentBrowser\Item\ItemInterface;
