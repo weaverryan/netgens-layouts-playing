@@ -1,0 +1,38 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserBackend.php b/src/Layouts/Browser/ScreencastBrowserBackend.php
+index d112dab..6a071cc 100644
+--- a/src/Layouts/Browser/ScreencastBrowserBackend.php
++++ b/src/Layouts/Browser/ScreencastBrowserBackend.php
+@@ -2,6 +2,7 @@
+ 
+ namespace App\Layouts\Browser;
+ 
++use App\Repository\ScreencastRepository;
+ use Netgen\ContentBrowser\Backend\BackendInterface;
+ use Netgen\ContentBrowser\Item\ItemInterface;
+ use Netgen\ContentBrowser\Item\LocationInterface;
+@@ -10,6 +11,10 @@ use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+ #[AutoconfigureTag('netgen_content_browser.backend', [ 'item_type' => 'doctrine_screencast' ])]
+ class ScreencastBrowserBackend implements BackendInterface
+ {
++    public function __construct(private ScreencastRepository $screencastRepository)
++    {
++    }
++
+     public function getSections(): iterable
+     {
+         return [new BrowserRootLocation()];
+@@ -41,7 +46,13 @@ class ScreencastBrowserBackend implements BackendInterface
+ 
+     public function getSubItems(LocationInterface $location, int $offset = 0, int $limit = 25): iterable
+     {
+-        return [];
++        $screencasts =  $this->screencastRepository->createQueryBuilder('screencast')
++            ->setFirstResult($offset)
++            ->setMaxResults($limit)
++            ->getQuery()
++            ->getResult();
++
++
+     }
+ 
+     public function getSubItemsCount(LocationInterface $location): int
