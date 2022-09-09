@@ -1,0 +1,32 @@
+diff --git a/package.json b/package.json
+index 68b419a..7cc5cc9 100644
+--- a/package.json
++++ b/package.json
+@@ -3,7 +3,7 @@
+         "@hotwired/stimulus": "^3.0.0",
+         "@symfony/stimulus-bridge": "^3.2.0",
+         "@symfony/webpack-encore": "^3.0.0",
+-        "bootstrap": "^5.2.1",
++        "bootstrap": "^4.3.1",
+         "core-js": "^3.23.0",
+         "regenerator-runtime": "^0.13.9",
+         "webpack-notifier": "^1.15.0"
+diff --git a/yarn.lock b/yarn.lock
+index 47ca170..369340a 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -1556,10 +1556,10 @@ boolbase@^1.0.0:
+   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
+   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
+ 
+-bootstrap@^5.2.1:
+-  version "5.2.1"
+-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.1.tgz#45f97ff05cbe828bad807b014d8425f3aeb8ec3a"
+-  integrity sha512-UQi3v2NpVPEi1n35dmRRzBJFlgvWHYwyem6yHhuT6afYF+sziEt46McRbT//kVXZ7b1YUYEVGdXEH74Nx3xzGA==
++bootstrap@^4.3.1:
++  version "4.6.2"
++  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.2.tgz#8e0cd61611728a5bf65a3a2b8d6ff6c77d5d7479"
++  integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
+ 
+ brace-expansion@^1.1.7:
+   version "1.1.11"

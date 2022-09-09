@@ -1,0 +1,7 @@
+diff --git a/templates/layouts/admin/content_browser/screencast_preview.html.twig b/templates/layouts/admin/content_browser/screencast_preview.html.twig
+new file mode 100644
+index 0000000..b9c3e89
+--- /dev/null
++++ b/templates/layouts/admin/content_browser/screencast_preview.html.twig
+@@ -0,0 +1 @@
++PREVIEW {{ dump() }}
