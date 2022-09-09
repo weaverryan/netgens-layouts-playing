@@ -98,4 +98,9 @@ class Screencast
 
         return $this;
     }
+
+    public function getImageUrl(): string
+    {
+        return 'uploads/screencasts/'.$this->getImagePath();
+    }
 }

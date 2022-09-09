@@ -31,4 +31,9 @@ class ScreencastBrowserItem implements ItemInterface
     {
         return true;
     }
+
+    public function getScreencast(): Screencast
+    {
+        return $this->screencast;
+    }
 }
