@@ -1,0 +1,14 @@
+diff --git a/config/packages/netgen_content_browser.yaml b/config/packages/netgen_content_browser.yaml
+new file mode 100644
+index 0000000..6d78d47
+--- /dev/null
++++ b/config/packages/netgen_content_browser.yaml
+@@ -0,0 +1,8 @@
++netgen_content_browser:
++    item_types:
++        # must match key under "value_types" in netgen_layouts.yaml
++        doctrine_screencast:
++            name: 'Screencasts 🎥'
++            preview:
++                template: 'layouts/admin/content_browser/screencast_preview.html.twig'
++
