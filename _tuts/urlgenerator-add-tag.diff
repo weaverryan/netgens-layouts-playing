@@ -1,0 +1,15 @@
+diff --git a/src/Layouts/ScreencastValueUrlGenerator.php b/src/Layouts/ScreencastValueUrlGenerator.php
+index 271c86a..39fe69c 100644
+--- a/src/Layouts/ScreencastValueUrlGenerator.php
++++ b/src/Layouts/ScreencastValueUrlGenerator.php
+@@ -4,8 +4,10 @@ namespace App\Layouts;
+ 
+ use App\Entity\Screencast;
+ use Netgen\Layouts\Item\ValueUrlGeneratorInterface;
++use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+ use Symfony\Component\Routing\RouterInterface;
+ 
++#[AutoconfigureTag('netgen_layouts.cms_value_url_generator', ['value_type' => 'doctrine_screencast'])]
+ class ScreencastValueUrlGenerator implements ValueUrlGeneratorInterface
+ {
+     public function __construct(private RouterInterface $router)

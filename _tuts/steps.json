@@ -214,7 +214,177 @@
             "id": "screencastvaluetype-add-to-query-types",
             "name": "ScreencastValueType: add to query_types",
             "description": null
+        },
+        {
+            "id": "screencastvaluetype-add-empty-query-type-handler-class",
+            "name": "ScreencastValueType: add empty query type handler class",
+            "description": null
+        },
+        {
+            "id": "screencastvaluetype-fill-in-query-type-handler",
+            "name": "ScreencastValueType: Fill in query type handler",
+            "description": null
+        },
+        {
+            "id": "screencastvaluetype-add-autoconfiguretag",
+            "name": "ScreencastValueType: Add AutoconfigureTag",
+            "description": null
+        },
+        {
+            "id": "valueconverter-create-empty-screencastvalueconverter",
+            "name": "ValueConverter: Create empty ScreencastValueConverter",
+            "description": null
+        },
+        {
+            "id": "valueconverter-fill-in-real-logic",
+            "name": "ValueConverter: fill in real logic",
+            "description": null
+        },
+        {
+            "id": "valueconverter-translate-label",
+            "name": "ValueConverter: translate label",
+            "description": null
+        },
+        {
+            "id": "valueconverter-add-admin-template",
+            "name": "ValueConverter: Add admin template",
+            "description": null
+        },
+        {
+            "id": "valueconverter-add-frontend-template",
+            "name": "ValueConverter: Add frontend template",
+            "description": null
+        },
+        {
+            "id": "css-downgrading-to-bootstrap-v4",
+            "name": "CSS: Downgrading to bootstrap v4",
+            "description": null
+        },
+        {
+            "id": "showpage-create-route-controller",
+            "name": "ShowPage: create route\/controller",
+            "description": null
+        },
+        {
+            "id": "urlgenerator-use-nglayouts-item-path",
+            "name": "UrlGenerator: use nglayouts_item_path()",
+            "description": null
+        },
+        {
+            "id": "urlgenerator-create-empty-screencasturlgenerator",
+            "name": "UrlGenerator: create empty ScreencastUrlGenerator",
+            "description": null
+        },
+        {
+            "id": "urlgenerator-fill-in-logic",
+            "name": "UrlGenerator: Fill in logic",
+            "description": null
+        },
+        {
+            "id": "urlgenerator-add-tag",
+            "name": "UrlGenerator: add tag",
+            "description": null
+        },
+        {
+            "id": "manualcollection-change-manual-items-config",
+            "name": "ManualCollection: change manual_items config",
+            "description": null
+        },
+        {
+            "id": "manualcollection-add-minimum-netgen-content-browser-config",
+            "name": "ManualCollection: Add minimum netgen_content_browser config",
+            "description": null
+        },
+        {
+            "id": "manualcollection-empty-screencastbrowserbackend",
+            "name": "ManualCollection: Empty ScreencastBrowserBackend",
+            "description": null
+        },
+        {
+            "id": "manualcollection-add-tag",
+            "name": "ManualCollection: add tag",
+            "description": null
+        },
+        {
+            "id": "manualcollection-add-browserrootlocation",
+            "name": "ManualCollection: Add BrowserRootLocation",
+            "description": null
+        },
+        {
+            "id": "manualcollection-basic-implementation-of-methods",
+            "name": "ManualCollection: Basic implementation of methods",
+            "description": null
+        },
+        {
+            "id": "manualcollection-query-for-all-screencast",
+            "name": "ManualCollection: query for all Screencast",
+            "description": null
+        },
+        {
+            "id": "manualcollection-create-empty-screencastbrowseritem",
+            "name": "ManualCollection: Create empty ScreencastBrowserItem",
+            "description": null
+        },
+        {
+            "id": "manualcollection-fill-in-class-and-use-it",
+            "name": "ManualCollection: fill in class and use it",
+            "description": null
+        },
+        {
+            "id": "manualcollection-return-correct-count",
+            "name": "ManualCollection: return correct count",
+            "description": null
+        },
+        {
+            "id": "manualcollection-shorten-getname-result",
+            "name": "ManualCollection: shorten getName() result",
+            "description": null
+        },
+        {
+            "id": "manualcollection-refactor-search-in-repository",
+            "name": "ManualCollection: refactor search() in repository",
+            "description": null
+        },
+        {
+            "id": "manualcollection-fill-in-search-functionality",
+            "name": "ManualCollection: Fill in search functionality",
+            "description": null
+        },
+        {
+            "id": "valueloader-create-empty-screencastvalueloader",
+            "name": "ValueLoader: create empty ScreencastValueLoader",
+            "description": null
+        },
+        {
+            "id": "valueloader-tag-it",
+            "name": "ValueLoader: tag it",
+            "description": null
+        },
+        {
+            "id": "valueloader-fill-in-methods",
+            "name": "ValueLoader: fill in methods",
+            "description": null
+        },
+        {
+            "id": "browserpreview-implement-browser-loaditem",
+            "name": "BrowserPreview: implement browser loadItem()",
+            "description": null
+        },
+        {
+            "id": "browserpreview-add-basic-template",
+            "name": "BrowserPreview: add basic template",
+            "description": null
+        },
+        {
+            "id": "browserpreview-make-template-better",
+            "name": "BrowserPreview: Make template better",
+            "description": null
+        },
+        {
+            "id": "browserpreview-installing-2x-twig-packages",
+            "name": "BrowserPreview: installing 2x twig packages",
+            "description": null
         }
     ],
-    "sha": "4880c9c75956aa95a1c48d0f951b12ce6798daed"
+    "sha": "43fdb6ac3ff55023b9ed5541f0ba7b1cc07d3cea"
 }
