@@ -26,7 +26,7 @@ index 0000000..5ff7772
 +}
 diff --git a/templates/screencast/index.html.twig b/templates/screencast/index.html.twig
 new file mode 100644
-index 0000000..918eb7d
+index 0000000..23edf43
 --- /dev/null
 +++ b/templates/screencast/index.html.twig
 @@ -0,0 +1,14 @@
@@ -40,7 +40,7 @@ index 0000000..918eb7d
 +
 +    <ul>
 +        {% for screencast in screencasts %}
-+            <li>{{ screencast.title }}</li>
++            <li>({{ screencast.id }}) {{ screencast.title }}</li>
 +        {% endfor %}
 +    </ul>
 +{% endblock %}

@@ -1,0 +1,37 @@
+diff --git a/src/Entity/Screencast.php b/src/Entity/Screencast.php
+index 5fc0264..e74f975 100644
+--- a/src/Entity/Screencast.php
++++ b/src/Entity/Screencast.php
+@@ -98,4 +98,9 @@ class Screencast
+ 
+         return $this;
+     }
++
++    public function getImageUrl(): string
++    {
++        return 'uploads/screencasts/'.$this->getImagePath();
++    }
+ }
+diff --git a/src/Layouts/Browser/ScreencastBrowserItem.php b/src/Layouts/Browser/ScreencastBrowserItem.php
+index 00d837f..c26e798 100644
+--- a/src/Layouts/Browser/ScreencastBrowserItem.php
++++ b/src/Layouts/Browser/ScreencastBrowserItem.php
+@@ -31,4 +31,9 @@ class ScreencastBrowserItem implements ItemInterface
+     {
+         return true;
+     }
++
++    public function getScreencast(): Screencast
++    {
++        return $this->screencast;
++    }
+ }
+diff --git a/templates/layouts/admin/content_browser/screencast_preview.html.twig b/templates/layouts/admin/content_browser/screencast_preview.html.twig
+index b9c3e89..5ac27b1 100644
+--- a/templates/layouts/admin/content_browser/screencast_preview.html.twig
++++ b/templates/layouts/admin/content_browser/screencast_preview.html.twig
+@@ -1 +1,3 @@
+-PREVIEW {{ dump() }}
++<string>Title</string>: {{ item.screencast.title|u.truncate(50) }}
++<br>
++<img src="{{ asset(item.screencast.imageUrl) }}" alt="Screencast Image">
