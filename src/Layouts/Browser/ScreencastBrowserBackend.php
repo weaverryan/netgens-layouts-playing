@@ -32,7 +32,7 @@ class ScreencastBrowserBackend implements BackendInterface
 
     public function loadItem($value): ItemInterface
     {
-        // TODO: Implement loadItem() method.
+        return new ScreencastBrowserItem($this->screencastRepository->find($value));
     }
 
     public function getSubLocations(LocationInterface $location): iterable
