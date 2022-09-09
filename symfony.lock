@@ -368,6 +368,9 @@
     "symfony/yaml": {
         "version": "v5.4.12"
     },
+    "twig/extra-bundle": {
+        "version": "v3.4.0"
+    },
     "zenstruck/foundry": {
         "version": "1.21",
         "recipe": {
