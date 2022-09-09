@@ -1,0 +1,29 @@
+diff --git a/src/Layouts/Browser/BrowserRootLocation.php b/src/Layouts/Browser/BrowserRootLocation.php
+new file mode 100644
+index 0000000..ddd3da5
+--- /dev/null
++++ b/src/Layouts/Browser/BrowserRootLocation.php
+@@ -0,0 +1,23 @@
++<?php
++
++namespace App\Layouts\Browser;
++
++use Netgen\ContentBrowser\Item\LocationInterface;
++
++class BrowserRootLocation implements LocationInterface
++{
++    public function getLocationId()
++    {
++        return '0';
++    }
++
++    public function getName(): string
++    {
++        return 'All Screencasts';
++    }
++
++    public function getParentId()
++    {
++        return null;
++    }
++}
