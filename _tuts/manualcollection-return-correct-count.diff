@@ -1,0 +1,16 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserBackend.php b/src/Layouts/Browser/ScreencastBrowserBackend.php
+index a4da944..0e8249c 100644
+--- a/src/Layouts/Browser/ScreencastBrowserBackend.php
++++ b/src/Layouts/Browser/ScreencastBrowserBackend.php
+@@ -60,7 +60,10 @@ class ScreencastBrowserBackend implements BackendInterface
+ 
+     public function getSubItemsCount(LocationInterface $location): int
+     {
+-        return 0;
++        return $this->screencastRepository->createQueryBuilder('screencast')
++            ->select('count(screencast.id)')
++            ->getQuery()
++            ->getSingleScalarResult();
+     }
+ 
+     public function search(string $searchText, int $offset = 0, int $limit = 25): iterable
