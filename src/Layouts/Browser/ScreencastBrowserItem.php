@@ -4,6 +4,7 @@ namespace App\Layouts\Browser;
 
 use App\Entity\Screencast;
 use Netgen\ContentBrowser\Item\ItemInterface;
+use function Symfony\Component\String\u;
 
 class ScreencastBrowserItem implements ItemInterface
 {
@@ -18,7 +19,7 @@ class ScreencastBrowserItem implements ItemInterface
 
     public function getName(): string
     {
-        return $this->screencast->getTitle();
+        return u($this->screencast->getTitle())->truncate(50, '...', false);
     }
 
     public function isVisible(): bool
