@@ -5,7 +5,9 @@ namespace App\Layouts;
 use Netgen\ContentBrowser\Backend\BackendInterface;
 use Netgen\ContentBrowser\Item\ItemInterface;
 use Netgen\ContentBrowser\Item\LocationInterface;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
+#[AutoconfigureTag('netgen_content_browser.backend', [ 'item_type' => 'doctrine_screencast' ])]
 class ScreencastBrowserBackend implements BackendInterface
 {
     public function getSections(): iterable
