@@ -1,0 +1,13 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserBackend.php b/src/Layouts/Browser/ScreencastBrowserBackend.php
+index cd75b56..beee8e8 100644
+--- a/src/Layouts/Browser/ScreencastBrowserBackend.php
++++ b/src/Layouts/Browser/ScreencastBrowserBackend.php
+@@ -32,7 +32,7 @@ class ScreencastBrowserBackend implements BackendInterface
+ 
+     public function loadItem($value): ItemInterface
+     {
+-        // TODO: Implement loadItem() method.
++        return new ScreencastBrowserItem($this->screencastRepository->find($value));
+     }
+ 
+     public function getSubLocations(LocationInterface $location): iterable
