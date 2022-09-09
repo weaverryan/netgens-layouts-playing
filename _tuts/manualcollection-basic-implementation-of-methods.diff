@@ -1,0 +1,61 @@
+diff --git a/src/Layouts/Browser/ScreencastBrowserBackend.php b/src/Layouts/Browser/ScreencastBrowserBackend.php
+index fbfe934..d112dab 100644
+--- a/src/Layouts/Browser/ScreencastBrowserBackend.php
++++ b/src/Layouts/Browser/ScreencastBrowserBackend.php
+@@ -12,12 +12,16 @@ class ScreencastBrowserBackend implements BackendInterface
+ {
+     public function getSections(): iterable
+     {
+-        // TODO: Implement getSections() method.
++        return [new BrowserRootLocation()];
+     }
+ 
+     public function loadLocation($id): LocationInterface
+     {
+-        // TODO: Implement loadLocation() method.
++        if ($id === '0') {
++            return new BrowserRootLocation();
++        }
++
++        throw new \Exception(sprintf('Invalid location "%s"', $id));
+     }
+ 
+     public function loadItem($value): ItemInterface
+@@ -27,31 +31,31 @@ class ScreencastBrowserBackend implements BackendInterface
+ 
+     public function getSubLocations(LocationInterface $location): iterable
+     {
+-        // TODO: Implement getSubLocations() method.
++        return [];
+     }
+ 
+     public function getSubLocationsCount(LocationInterface $location): int
+     {
+-        // TODO: Implement getSubLocationsCount() method.
++        return 0;
+     }
+ 
+     public function getSubItems(LocationInterface $location, int $offset = 0, int $limit = 25): iterable
+     {
+-        // TODO: Implement getSubItems() method.
++        return [];
+     }
+ 
+     public function getSubItemsCount(LocationInterface $location): int
+     {
+-        // TODO: Implement getSubItemsCount() method.
++        return 0;
+     }
+ 
+     public function search(string $searchText, int $offset = 0, int $limit = 25): iterable
+     {
+-        // TODO: Implement search() method.
++        return [];
+     }
+ 
+     public function searchCount(string $searchText): int
+     {
+-        // TODO: Implement searchCount() method.
++        return 0;
+     }
+ }
