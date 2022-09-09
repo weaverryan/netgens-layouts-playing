@@ -1,0 +1,93 @@
+diff --git a/src/Layouts/ScreencastQueryHandlerType.php b/src/Layouts/ScreencastQueryHandlerType.php
+index bada85e..783c73b 100644
+--- a/src/Layouts/ScreencastQueryHandlerType.php
++++ b/src/Layouts/ScreencastQueryHandlerType.php
+@@ -2,29 +2,41 @@
+ 
+ namespace App\Layouts;
+ 
++use App\Repository\ScreencastRepository;
+ use Netgen\Layouts\API\Values\Collection\Query;
+ use Netgen\Layouts\Collection\QueryType\QueryTypeHandlerInterface;
+ use Netgen\Layouts\Parameters\ParameterBuilderInterface;
++use Netgen\Layouts\Parameters\ParameterType\TextType;
+ 
+ class ScreencastQueryHandlerType implements QueryTypeHandlerInterface
+ {
++    public function __construct(
++        private ScreencastRepository $screencastRepository
++    )
++    {
++    }
++
+     public function buildParameters(ParameterBuilderInterface $builder): void
+     {
+-        // TODO: Implement buildParameters() method.
++        $builder->add('title', TextType::class);
+     }
+ 
+     public function getValues(Query $query, int $offset = 0, ?int $limit = null): iterable
+     {
+-        // TODO: Implement getValues() method.
++        return $this->screencastRepository->search(
++            $query->getParameter('title')->getValue(),
++            $offset,
++            $limit,
++        );
+     }
+ 
+     public function getCount(Query $query): int
+     {
+-        // TODO: Implement getCount() method.
++        return count($this->getValues($query));
+     }
+ 
+     public function isContextual(Query $query): bool
+     {
+-        // TODO: Implement isContextual() method.
++        return false;
+     }
+ }
+diff --git a/src/Repository/ScreencastRepository.php b/src/Repository/ScreencastRepository.php
+index b50f813..1bc2588 100644
+--- a/src/Repository/ScreencastRepository.php
++++ b/src/Repository/ScreencastRepository.php
+@@ -39,28 +39,14 @@ class ScreencastRepository extends ServiceEntityRepository
+         }
+     }
+ 
+-//    /**
+-//     * @return Screencast[] Returns an array of Screencast objects
+-//     */
+-//    public function findByExampleField($value): array
+-//    {
+-//        return $this->createQueryBuilder('s')
+-//            ->andWhere('s.exampleField = :val')
+-//            ->setParameter('val', $value)
+-//            ->orderBy('s.id', 'ASC')
+-//            ->setMaxResults(10)
+-//            ->getQuery()
+-//            ->getResult()
+-//        ;
+-//    }
+-
+-//    public function findOneBySomeField($value): ?Screencast
+-//    {
+-//        return $this->createQueryBuilder('s')
+-//            ->andWhere('s.exampleField = :val')
+-//            ->setParameter('val', $value)
+-//            ->getQuery()
+-//            ->getOneOrNullResult()
+-//        ;
+-//    }
++    public function search(?string $search, int $offset = 0, ?int $limit = null): array
++    {
++        return $this->createQueryBuilder('screencast')
++            ->andWhere('screencast.title LIKE :search OR screencast.description LIKE :search')
++            ->setParameter('search', '%'.$search.'%')
++            ->setFirstResult($offset)
++            ->setMaxResults($limit)
++            ->getQuery()
++            ->getResult();
++    }
+ }
