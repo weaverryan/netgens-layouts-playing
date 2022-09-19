@@ -1,0 +1,7 @@
+netgen_layouts_contentful:
+    entry_slug_type:
+        content_type:
+            # Category content type
+            5KMiN6YPvi42icqAUQMCQe: simple
+            # Post content type
+            2wKn6yEnZewu2SCCkus4as: with_my_prefix
